@@ -12,9 +12,8 @@
 1. User initiates the delete category process.
 2. User selects the category
 3. System removes the category
-4. Every entry that has this category will have no category
 
-### Exception (3) [Category is parent category of at least 1 sub category]
+### Exception (3) [Category has at least 1 finished entry]
 
-3.1. System informs action could not be performed because there is at least 1 sub category related to the current category
+3.1. System informs action could not be performed because there is at least 1 finished entry related to the current category
 

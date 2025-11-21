@@ -14,7 +14,6 @@
 3. User provides the new information, such as:
     - Name of category
     - Description of category
-    - ID of parent category
 4. System validates the information provided
 5. System updates the category
 
@@ -24,12 +23,6 @@
     - Monthly amount _(Optional)_
     - Is active? _(Optional)_
 3.2. _Back to step 4_
-
-### Exception (3) [Invalid parent category]
-
-3.1. System informs to user that parent category is not invalid, which reasons can be:
-    - Is a sub category
-    - Is a monthly service category
 
 ### Exception (4) [Information is invalid]
 
