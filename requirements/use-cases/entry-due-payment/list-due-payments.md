@@ -9,8 +9,8 @@
 
 ### Normal Flow
 
-1. User indicates he wants to list categories
-2. System list categories, providing informations such as:
+1. User indicates he wants to list due payment entries
+2. System list due payment entries, providing informations such as:
     - ID
     - ID of Category
     - Date of last change

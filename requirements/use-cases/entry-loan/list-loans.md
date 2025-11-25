@@ -10,7 +10,7 @@
 ### Normal Flow
 
 1. User indicates he wants to list categories
-2. System list categories, providing informations such as:
+2. System list loan entries, providing informations such as:
     - ID
     - ID of Category
     - Date of last change
