@@ -10,5 +10,4 @@
 ### Normal Flow
 
 1. System is initiated, considering current date and last open date
-2. If entries that are in trash should be auto removed and has more than life days, system should remove them from database
-3. If month changes, creates due payments about active monthly services
+2. If month changes, creates due payments about active monthly services

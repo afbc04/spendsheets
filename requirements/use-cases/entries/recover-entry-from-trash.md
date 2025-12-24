@@ -2,7 +2,7 @@
 
 - **Title:** Recover Deleted Entry
 - **Description:** Administrators can recover deleted entry
-- **Pre-condition:** User must be Administrator & entry must exists and be in delete mode
+- **Pre-condition:** User must be Administrator & entry must exists and be in delete status
 - **Pos-condition:** Entry is recovered
 
 # Flow

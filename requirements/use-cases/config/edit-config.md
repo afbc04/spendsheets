@@ -16,7 +16,8 @@
     - Password
     - Is visible to public?
     - Initial money
-    - Life days of trash
+    - Lost money
+    - Saved money
 3. System validates the new informations
 4. System saves the changes of the config
 

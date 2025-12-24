@@ -17,13 +17,6 @@
 4. System validates the information provided
 5. System updates the category
 
-### Alternative Flow (3) [Type is Monthly Service]
-
-3.1. User provides more information, such as:
-    - Monthly amount _(Optional)_
-    - Is active? _(Optional)_
-3.2. _Back to step 4_
-
 ### Exception (4) [Information is invalid]
 
-5. System informs to user that information provided is invalid
+4.1. System informs to user that information provided is invalid

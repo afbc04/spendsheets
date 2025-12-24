@@ -16,16 +16,7 @@
     - Type
 3. System validates the information provided
 4. System determines the ID and Creation Date of new category
-5. System assumes category does not has parent
-6. System saves the new category, providing the ID to the user 
-
-### Alternative Flow (2) [Type is Monthly Service]
-
-2.1. User provides more information, such as:
-    - Monthly amount _(Optional)_
-    - Is active? _(Optional)_
-2.2. System saves the category as active monthly service
-2.3. _Back to step 3_
+5. System saves the new category, providing the ID to the user 
 
 ### Exception (3) [Information is invalid]
 

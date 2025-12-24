@@ -2,7 +2,7 @@
 
 - **Title:** View Config Details
 - **Description:** System provides information related to the config
-- **Pre-condition:** Config must exists & User is Administrator
+- **Pre-condition:** Config must exists
 - **Pos-condition:** Config details' are displayed
 
 # Flow
@@ -14,7 +14,6 @@
     - Name
     - Username
     - Is visible to public?
-    - Initial Money
     - Last open date
+    - Is token valid?
     - Is writer?
-    - Life days in trash

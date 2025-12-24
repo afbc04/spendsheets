@@ -16,13 +16,15 @@
     - Password
     - Is visible to public? _(Optional)_
     - Initial money _(Optional)_
-    - Life days of trash _(Optional)_
+    - Lost money _(Optional)_
+    - Saved money _(Optional)_
 3. System validates the information provided
 4. System fills the missing information, such as:
     - Last open date is the current date
     - If no value provided to visibility, default value is false
     - If no initial money is not provided, sets it as 0
-    - If no life days of trash, sets it to 30
+    - If no lost money is not provided, sets it as 0
+    - If no saved money is not provided, sets it as 0
 5. System saves the config
 
 ### Exception (3) [Information is invalid]
