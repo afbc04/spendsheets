@@ -12,7 +12,7 @@ namespace Controller {
         public readonly AsyncReaderWriterLock Lock;
         private ConfigDAO _dao;
 
-        private bool _does_config_exist;
+        public bool does_config_exist {private set; get;}
 
         public ConfigController() {
             this.Lock = new();
@@ -24,7 +24,7 @@ namespace Controller {
         }
 
         public async Task load_settings() {
-            this._does_config_exist = await this._dao.contains();
+            this.does_config_exist = await this._dao.contains();
         }
 
         public async Task<Config?> get() {
@@ -44,7 +44,7 @@ namespace Controller {
 
         public async Task<SendingPacket> Create(IDictionary<string,object> config_data) {
 
-            if (this._does_config_exist)
+            if (this.does_config_exist)
                 return new PacketFail(403,"Config already exists. Do not need creation");
 
             try {
@@ -65,7 +65,7 @@ namespace Controller {
                 var new_config = config_dto.extract();
 
                 if (await this._dao.put(new_config)) {
-                    this._does_config_exist = true;
+                    this.does_config_exist = true;
                     return new PacketSuccess(201,new_config.to_json());
                 }
                 else
@@ -80,7 +80,7 @@ namespace Controller {
 
         public async Task<SendingPacket> Update(IDictionary<string,object> config_data) {
 
-            if (!this._does_config_exist)
+            if (!this.does_config_exist)
                 return ConfigController.send_error_config_does_not_exists();
 
             try {
@@ -100,7 +100,7 @@ namespace Controller {
                 var updated_config = config_dto.extract();
 
                 if (await this._dao.put(updated_config)) {
-                    this._does_config_exist = true;
+                    this.does_config_exist = true;
                     return new PacketSuccess(200,updated_config.to_json());
                 }
                 else

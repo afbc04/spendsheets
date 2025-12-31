@@ -1,6 +1,8 @@
 <templates>
 
-    <template id="get" />
+    <template id="get">
+        <auth />
+    </template>
 
     <template id="create">
         <body required="true">
@@ -15,6 +17,7 @@
     </template>
 
     <template id="update">
+        <auth />
         <body required="true">
             <i name="username"/>
             <i name="password"/>

@@ -1,11 +1,28 @@
 <templates>
 
+    <template id="get">
+        <auth />
+    </template>
+
     <template id="create">
+        <auth />
         <body required="true">
             <i name="username" required="true"/>
             <i name="password" required="true"/>
-            <i name="grantType" required="true"/>
         </body>
+    </template>
+
+    <template id="update">
+        <auth required="true"/>
+        <body required="true">
+            <i name="username"/>
+            <i name="password"/>
+            <i name="writer" required="true" datatype="bool"/>
+        </body>
+    </template>
+
+    <template id="delete">
+        <auth required="true"/>
     </template>
 
 </templates>

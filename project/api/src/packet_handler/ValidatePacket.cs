@@ -170,15 +170,10 @@ namespace PacketHandlers {
                 Querieable? extracted_queries = null;
 
                 string? token = validate_packet_auth(request, template.auth);
-                if (token != null) {
-
-
-                }
-
                 extracted_body = await validate_packet_body(request, template.body);
                 extracted_queries = validate_packet_queries(request, template.queries);
 
-                return (true,null,new PacketExtracted(extracted_body,extracted_queries));
+                return (true,null,new PacketExtracted(token,extracted_body,extracted_queries));
 
             }
             catch (ValidatePacketException ex) {
