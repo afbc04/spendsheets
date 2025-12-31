@@ -10,9 +10,9 @@
             <i name="password" required="true"/>
             <i name="name" />
             <i name="public" datatype="bool" />
-            <i name="initialMoney" datatype="integer" />
-            <i name="lostMoney" datatype="integer" />
-            <i name="savedMoney" datatype="integer" />
+            <i name="initialMoney" datatype="float" />
+            <i name="lostMoney" datatype="float" />
+            <i name="savedMoney" datatype="float" />
         </body>
     </template>
 
@@ -23,9 +23,9 @@
             <i name="password"/>
             <i name="name" />
             <i name="public" datatype="bool" />
-            <i name="initialMoney" datatype="integer" />
-            <i name="lostMoney" datatype="integer" />
-            <i name="savedMoney" datatype="integer" />
+            <i name="initialMoney" datatype="float" />
+            <i name="lostMoney" datatype="float" />
+            <i name="savedMoney" datatype="float" />
         </body>
     </template>
 

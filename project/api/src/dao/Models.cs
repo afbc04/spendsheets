@@ -14,6 +14,8 @@ namespace Models {
 
     public class ModelsManager {
 
+        public static readonly int database_version = 1;
+
         public static readonly string connection_string = $@"
             Host=database;
             Database={Environment.GetEnvironmentVariable("POSTGRES_DB")};

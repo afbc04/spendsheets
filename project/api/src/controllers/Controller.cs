@@ -18,8 +18,17 @@ namespace Controller {
             this._token = new TokenController();
         }
 
+        /// #################################
+        ///           LOADER
+        /// #################################
         public async Task load_settings() {
+
             await this._config.load_settings();
+
+
+
+            await this._config.finish_config();
+
         }
 
         /// #################################
@@ -33,7 +42,7 @@ namespace Controller {
 
             try {
 
-                var response = await this._config.Get();
+                var response = this._config.Get();
                 return response;
                 
             } finally {
@@ -111,7 +120,7 @@ namespace Controller {
 
             try {
 
-                var config = await this._config.get();
+                var config = this._config.config;
                 var response = this._token.Create(request_data,config!);
                 return response;
                 
@@ -156,7 +165,7 @@ namespace Controller {
             try {
 
                 AccessToken? access_token = this._token.get_token(token);
-                var config = await this._config.get();
+                var config = this._config.config;
                 var response = this._token.Update(request_data,access_token,config!);
                 return response;
                 

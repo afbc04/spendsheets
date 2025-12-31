@@ -20,6 +20,11 @@ public class API {
             return true;
 
         }
+        catch (ControllerManagerException ex) {
+            Log.Error("Could not load API");
+            Log.Error(ex.StackTrace!);
+            return false;
+        }
         catch (Exception ex) {
             Log.Error(ex.StackTrace!);
             return false;

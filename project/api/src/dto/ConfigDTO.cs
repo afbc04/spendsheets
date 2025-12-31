@@ -1,5 +1,6 @@
 namespace DTO {
 
+    // Exception when some proprieties break rules
     public class ConfigDTOException : Exception {
 
         public string message {private set; get;}
@@ -22,10 +23,14 @@ namespace DTO {
             this._config = config;
         }
 
+        // Final method
         public Config extract() {
             return this._config;
         }
 
+        // @@@@@@@@@@@@@@@@
+        //    SETTERS
+        // @@@@@@@@@@@@@@@@
         public void set_username(string username) {
 
             if (username.Length < Config.username_length_min)
@@ -63,30 +68,30 @@ namespace DTO {
             this._config.is_visible_to_public = is_public;
         }
 
-        public void set_initial_money(long initial_money) {
+        public void set_initial_money(double initial_money) {
 
             if (initial_money < 0)
                 throw new ConfigDTOException("Initial money can not be negative");
 
-            this._config.initial_money = (uint) initial_money;
+            this._config.initial_money = Utils.convert_from_money(initial_money);
 
         }
 
-        public void set_lost_money(long lost_money) {
+        public void set_lost_money(double lost_money) {
 
             if (lost_money < 0)
                 throw new ConfigDTOException("Lost money can not be negative");
 
-            this._config.lost_money = (uint) lost_money;
+            this._config.lost_money = Utils.convert_from_money(lost_money);
 
         }
 
-        public void set_saved_money(long saved_money) {
+        public void set_saved_money(double saved_money) {
 
             if (saved_money < 0)
                 throw new ConfigDTOException("Saved money can not be negative");
 
-            this._config.saved_money = (uint) saved_money;
+            this._config.saved_money = Utils.convert_from_money(saved_money);
 
         }
 

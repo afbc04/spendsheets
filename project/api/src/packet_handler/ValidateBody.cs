@@ -94,15 +94,8 @@ namespace PacketHandlers {
 
         private static PacketBodyValidatorObject _validate_packet_body_fields_rec_value_item(object item, TemplateValidatorItem requirements, string path, PacketBodyValidatorObject pbv) {
 
-            if (requirements.datatype == typeof(double)) {
-
-                if (item is not long && item is not double)
-                    pbv.wrong_datatype_fields[path] = requirements.datatype.Name;
-
-            }
-            else if (item == null || requirements.datatype != item.GetType()) {
+            if (item == null || requirements.datatype != item.GetType())
                 pbv.wrong_datatype_fields[path] = requirements.datatype.Name;
-            }
             
             return pbv;
 

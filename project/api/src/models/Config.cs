@@ -2,14 +2,16 @@ using System.Security.Cryptography;
 
 public class Config {
 
+    // Rules applied to Config
     public static readonly int username_length_min = 3;
     public static readonly int username_length_max = 30;
     public static readonly int password_length_min = 4;
     public static readonly int password_length_max = 64;
     public static readonly int name_length_max = 64;
 
-    public int database_version {private set; get;}
-    public DateTime last_online_date{private set; get;}
+    // Proprieties of Config
+    public int database_version {set; get;}
+    public DateTime last_online_date {set; get;}
 
     public string username {set; get;}
 
@@ -22,21 +24,10 @@ public class Config {
     public ulong lost_money {set; get;}
     public ulong saved_money {set; get;}
 
-    public IDictionary<string,object?> to_json() {
-        return new Dictionary<string,object?> {
-            ["username"] = this.username,
-            ["name"] = this.name,
-            ["public"] = this.is_visible_to_public,
-            ["lastOnlineDate"] = null,
-            ["initialMoney"] = Utils.convert_to_money(this.initial_money),
-            ["lostMoney"] = Utils.convert_to_money(this.lost_money),
-            ["savedMoney"] = Utils.convert_to_money(this.saved_money)
-        };
-    }
-
+    // Constructors
     public Config(string username, byte[] password) {
 
-        this.database_version = 1;
+        this.database_version = Models.ModelsManager.database_version;
         this.last_online_date = DateTime.UtcNow;
 
         this.username = username;
@@ -68,6 +59,7 @@ public class Config {
 
     }
 
+    // Methods
     public void set_password(string password) {
 
         byte[] salt = RandomNumberGenerator.GetBytes(8);
@@ -83,6 +75,18 @@ public class Config {
         byte[] hash_bytes = new Rfc2898DeriveBytes(password_to_check, this._salt, 100000, HashAlgorithmName.SHA256).GetBytes(32);
         return CryptographicOperations.FixedTimeEquals(hash_bytes,this._password);
 
+    }
+
+    public IDictionary<string,object?> to_json() {
+        return new Dictionary<string,object?> {
+            ["username"] = this.username,
+            ["name"] = this.name,
+            ["public"] = this.is_visible_to_public,
+            ["lastOnlineDate"] = Utils.convert_to_datetime(this.last_online_date),
+            ["initialMoney"] = Utils.convert_to_money(this.initial_money),
+            ["lostMoney"] = Utils.convert_to_money(this.lost_money),
+            ["savedMoney"] = Utils.convert_to_money(this.saved_money)
+        };
     }
 
 
