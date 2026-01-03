@@ -1,6 +1,6 @@
 using Npgsql;
 using NpgsqlTypes;
-using Queries;
+using Serilog;
 
 namespace DAO {
 
@@ -8,13 +8,6 @@ namespace DAO {
         id,
         name,
         description
-    };
-
-    enum TagFieldList {
-        id,
-        name,
-        description,
-        countList
     };
 
     public class TagDAO {
@@ -98,7 +91,8 @@ namespace DAO {
                 });
 
             }
-            catch {
+            catch (Exception ex) {
+                Log.Error(ex.StackTrace ?? ex.Message);
                 return null;
             }
 
@@ -132,32 +126,15 @@ namespace DAO {
                 });
 
             }
-            catch {
+            catch (Exception ex) {
+                Log.Error(ex.StackTrace ?? ex.Message);
                 return false;
             }
 
         }
 
         public async Task<DAOListing<Tag>> Values(Query query) {
-            return await DAOUtils.List("Tags","id, name, description",query, r => _serialize(r));       
-/*
-            // Primeira página
-var query = new Query()
-    .Where("name", "ILIKE", "%api%")
-    .OrderBy("id", asc: false)
-    .Page(10, 0);
-
-var result = await DAOUtils.List<Tag>(
-    table: "Tags",
-    attributes: "id, name, description",
-    query: query,
-    serializer: r => new Tag {
-        ID = r.GetInt64(0),
-        name = r.GetString(1),
-        description = r.IsDBNull(2) ? null : r.GetString(2)
-    }
-);*/
-
+            return await DAOUtils.List("Tags","id, name, description",query, r => _serialize(r));
         }
 
         public async Task<IList<long>> Keys() {

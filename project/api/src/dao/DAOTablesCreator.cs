@@ -3,7 +3,7 @@ namespace DAO {
     public class DAOTableCreator {
 
         public static async Task Config() =>
-            await DAOUtils.CreateTable(@$"
+            await DAOUtils.CreateTableOrIndex(@$"
                 CREATE TABLE IF NOT EXISTS Config (
                   id INT PRIMARY KEY,
                   databaseVersion INT NOT NULL,
@@ -21,7 +21,7 @@ namespace DAO {
                 );");
 
         public static async Task Tags() =>
-            await DAOUtils.CreateTable(@$"
+            await DAOUtils.CreateTableOrIndex(@$"
                 CREATE TABLE IF NOT EXISTS Tags (
                   id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
                   name VARCHAR({TagRules.name_length_max}) NOT NULL,

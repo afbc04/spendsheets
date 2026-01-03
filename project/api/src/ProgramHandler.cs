@@ -1,4 +1,3 @@
-using PacketTemplates;
 using Serilog;
 
 public class ProgramHandler {

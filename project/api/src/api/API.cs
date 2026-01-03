@@ -1,7 +1,6 @@
 using Controller;
 using Serilog;
 using DAO;
-using System.Threading.Tasks;
 
 public class API {
 
