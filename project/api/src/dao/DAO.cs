@@ -30,6 +30,9 @@ namespace DAO {
             await DAOTableCreator.Tags();
             await DAOIndexCreator.TagsName();
 
+            await DAOTableCreator.Categories();
+            await DAOIndexCreator.CategoriesName();
+
         }
 
     }

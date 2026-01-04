@@ -9,6 +9,7 @@ public static class v1Routers {
         api.ConfigRoutersMapping();
         api.TokenRoutersMapping();
         api.TagRoutersMapping();
+        api.CategoryRoutersMapping();
 
     }
 

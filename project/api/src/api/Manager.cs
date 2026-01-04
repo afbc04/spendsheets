@@ -5,12 +5,14 @@ public class Manager {
     public ConfigManager Config {private set; get;}
     public TokenManager Token {private set; get;}
     public TagManager Tag {private set; get;}
+    public CategoryManager Category {private set; get;}
 
-    private Manager(ConfigController config, TokenController token, TagController tag) {
+    private Manager(ConfigController config, TokenController token, TagController tag, CategoryController category) {
 
         this.Config = new ConfigManager(config,token);
         this.Token = new TokenManager(token,config);
         this.Tag = new TagManager(tag,token,config);
+        this.Category = new CategoryManager(category,token,config);
 
     }
 
@@ -20,6 +22,7 @@ public class Manager {
         var config_controller = new ConfigController();
         var token_controller = new TokenController();
         var tag_controller = new TagController();
+        var category_controller = new CategoryController();
 
         // Load controllers
         await config_controller._Load();
@@ -29,7 +32,7 @@ public class Manager {
         await config_controller._Finish();
 
         // Create manager
-        return new Manager(config_controller,token_controller,tag_controller);
+        return new Manager(config_controller,token_controller,tag_controller,category_controller);
 
     }
 

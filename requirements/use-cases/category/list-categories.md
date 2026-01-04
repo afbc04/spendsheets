@@ -13,3 +13,4 @@
 2. System list categories, providing informations such as:
     - ID
     - Name
+    - Description

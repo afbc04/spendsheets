@@ -28,6 +28,14 @@ namespace DAO {
                   description VARCHAR({TagRules.description_length_max}) 
                 );");
 
+        public static async Task Categories() =>
+            await DAOUtils.CreateTableOrIndex(@$"
+                CREATE TABLE IF NOT EXISTS Categories (
+                  id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+                  name VARCHAR({CategoryRules.name_length_max}) NOT NULL,
+                  description VARCHAR({CategoryRules.description_length_max}) 
+                );");
+
     }
 
 }
